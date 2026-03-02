@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   // Function to make a call using my.postMessage
   const makeACall = () => {
-      window.my.makePhoneCall({ number: '00000' });
+      // my.makePhoneCall({ number: '00000' });
   };
 
   // Function to make a standard network request
@@ -26,7 +26,7 @@ function App() {
         <div className="card">
           <h2>Make a Call</h2>
           <p>Click the button below to send a message to the Mini Program to initiate a phone call to customer care (100).</p>
-          <button onClick={makeACall}>Make a Call</button>
+          <button onClick="my.makePhoneCall({ number: '00000' })">Make a Call</button>
         </div>
         <div className="card">
           <h2>Make a Network Request</h2>
