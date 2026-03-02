@@ -5,12 +5,7 @@ function App() {
   // Function to make a call using my.postMessage
   const makeACall = () => {
     if (window.my && typeof window.my.postMessage === 'function') {
-      window.my.postMessage(JSON.stringify({
-        type: 'CALL_PHONE',
-        payload: {
-          number: '100' // Example number
-        }
-      }));
+        window.makePhoneCall({ number: '00000' });
       alert('Message sent to Mini Program to make a call.');
     } else {
       alert('Mini Program postMessage API not available. Cannot make a call.');
