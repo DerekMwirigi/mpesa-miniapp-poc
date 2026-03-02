@@ -7,9 +7,15 @@ function App() {
 
     const makeACall = () => {
         if (isMiniApp()) {
-            window.my.makePhoneCall({ number: '100' });
+            try {
+                window.my.postMessage({ type: 'CALL_PHONE', number: '100' });
+                alert('Message sent to shell!');
+            } catch (err) {
+                alert('postMessage error: ' + err.message);
+            }
         } else {
-            alert('[DEV] Not inside M-Pesa app. my.makePhoneCall unavailable.');
+            // Fallback: try direct call (works on real device, not simulator)
+            alert('[DEV] window.my not available. Are you inside the M-Pesa app?');
         }
     };
 
@@ -17,16 +23,16 @@ function App() {
         try {
             const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
             const data = await response.json();
-            alert('Network request successful! Response: ' + JSON.stringify(data));
+            alert('Success: ' + JSON.stringify(data));
         } catch (error) {
-            alert('Network request failed: ' + error.message);
+            alert('Failed: ' + error.message);
         }
     };
 
     return (
         <div className="App">
             <header className="App-header">
-                <h1>M-Pesa Mini App POC 1</h1>
+                <h1>M-Pesa Mini App POC</h1>
                 <p>This is a proof-of-concept application for the Safaricom M-Pesa Mini App program.</p>
                 <div className="card">
                     <h2>Make a Call</h2>
