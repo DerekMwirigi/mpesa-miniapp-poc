@@ -26,7 +26,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>M-Pesa Mini App POC</h1>
+                <h1>M-Pesa Mini App POC 1</h1>
                 <p>This is a proof-of-concept application for the Safaricom M-Pesa Mini App program.</p>
                 <div className="card">
                     <h2>Make a Call</h2>
