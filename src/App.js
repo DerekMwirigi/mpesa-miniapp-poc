@@ -4,12 +4,7 @@ import './App.css';
 function App() {
   // Function to make a call using my.postMessage
   const makeACall = () => {
-    if (window.my && typeof window.my.postMessage === 'function') {
-        window.makePhoneCall({ number: '00000' });
-      alert('Message sent to Mini Program to make a call.');
-    } else {
-      alert('Mini Program postMessage API not available. Cannot make a call.');
-    }
+      window.my.makePhoneCall({ number: '00000' });
   };
 
   // Function to make a standard network request
